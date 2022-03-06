@@ -90,6 +90,9 @@ public class Start {
                     } else if ("Helium API Timeout".equals(bcStatus.getStatus())) {
                         LOGGER.warn("We got an API timeout ... stuckCounter=" + stuckCounter);
                         stuckCounter++;
+                    } else if ("Loading".equals(bcStatus.getStatus())) {
+                        LOGGER.warn("We got are in loading state ... stuckCounter=" + stuckCounter);
+                        stuckCounter++;
                     } else if ("syncing".equals(bcStatus.getStatus().toLowerCase())) {
                         Integer currentGAP = Integer.parseInt(bcStatus.getGap());
                         if (0 == previousGAP)  {
